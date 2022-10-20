@@ -1,12 +1,6 @@
 package com.onlinestore.dao;
-import com.onlinestore.model.Admin;
-import com.onlinestore.model.Customer;
-import com.onlinestore.model.Orders;
-import com.onlinestore.model.Products;
-import com.onlinestore.repository.AdminRepository;
-import com.onlinestore.repository.CustomerRepository;
-import com.onlinestore.repository.OrderRepository;
-import com.onlinestore.repository.ProductRepository;
+import com.onlinestore.model.*;
+import com.onlinestore.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,6 +16,10 @@ public class DaoImpl implements Dao{
     private OrderRepository orderRepository;
     @Autowired
     private AdminRepository adminRepository;
+    @Autowired
+    private CustomerProfileRepository customerProfileRepository;
+    @Autowired
+    private NewCustomerRepository newCustomerRepository;
 
 @Transactional
 public Customer getCustomerById(int customerId){
@@ -45,11 +43,32 @@ public Customer getCustomerById(int customerId){
         return adminRepository.search(adminId,password);
     }
     @Transactional
-    public List<Customer> findId(int customerId, String password) {
+    public List<Customer> find(int customerId, String password) {
         return customerRepository.find(customerId,password);
     }
     @Transactional
     public List<Orders> get(int customerId){
         return orderRepository.get(customerId);
     }
+    @Transactional
+    public List<Address> getProfile(int addressId){
+    return customerProfileRepository.getProfile(addressId);
+    }
+    @Transactional
+    public Products getProducts(int  productId) {
+        return productRepository.findById(productId).get();
+    }
+    @Transactional
+    public Products update(Products products) {
+        return productRepository.save(products);
+
+
+    }
+    @Transactional
+    public Customer updateCustomer(Customer customer) {
+        return newCustomerRepository.save(customer);
+
+
+    }
+
 }

@@ -26,6 +26,10 @@
                       <td>${product.name}</td>
                       <td>${product.count}</td>
                       <td>${product.cost}</td>
+                      <td><form method="get"  action="/Store/buy">
+                       </br>EnterQuantity  <input type="text" name="quantity" /> &nbsp;
+                        <input type="submit"  value="Buy"/></form>
+                     </td>
                   </tr>
                   </c:forEach>
               </table>

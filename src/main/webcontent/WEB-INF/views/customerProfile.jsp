@@ -8,24 +8,27 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Person List</title>
+<title>profile</title>
 </head>
 <body>
 <div align="center">
-    <h2>Customer List</h2>
+    <h2>Profile</h2>
     <table border="1" cellpadding="5">
                   <tr>
-                      <th>CustomerId</th>
-                      <th>CustomerName</th>
-                      <th>password</th>
                       <th>AddressId</th>
+                      <th>Street</th>
+                      <th>City</th>
+                      <th>District</th>
+                      <th>PinCode</th>
+
                   </tr>
-                  <c:forEach items="${customerList}" var="customer">
+                  <c:forEach items="${profile}" var="profile">
                   <tr>
-                      <td>${customer.customerId}</td>
-                      <td>${customer.customerName}</td>
-                      <td>${customer.password}</td>
-                      <td>${customer.addressId}</td>
+                      <td>${profile.addressId}</td>
+                      <td>${profile.street}</td>
+                      <td>${profile.city}</td>
+                      <td>${profile.district}</td>
+                      <td>${profile.pinCode}</td>
                   </tr>
                   </c:forEach>
               </table>

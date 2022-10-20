@@ -8,24 +8,28 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Person List</title>
+<title>Product List</title>
 </head>
 <body>
 <div align="center">
-    <h2>Customer List</h2>
+    <h2>Product List</h2>
     <table border="1" cellpadding="5">
                   <tr>
-                      <th>CustomerId</th>
-                      <th>CustomerName</th>
-                      <th>password</th>
-                      <th>AddressId</th>
+                      <th>ProductId</th>
+                      <th>Name</th>
+                      <th>Count</th>
+                      <th>Cost</th>
                   </tr>
-                  <c:forEach items="${customerList}" var="customer">
+                  <c:forEach items="${productList}" var="product">
                   <tr>
-                      <td>${customer.customerId}</td>
-                      <td>${customer.customerName}</td>
-                      <td>${customer.password}</td>
-                      <td>${customer.addressId}</td>
+                      <td>${product.productId}</td>
+                      <td>${product.name}</td>
+                      <td>${product.count}</td>
+                      <td>${product.cost}</td>
+                      <td>
+                         <a href="http://localhost:8080/Store/edit/${product.productId}/">Edit</a>
+                                                       &nbsp;&nbsp;&nbsp;
+                      </td>
                   </tr>
                   </c:forEach>
               </table>

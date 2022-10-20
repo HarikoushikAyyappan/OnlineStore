@@ -27,7 +27,7 @@
             </tr>
             </c:forEach>
         </table>
-     <form method="get"  action="/Store/listOfProducts">
+     <form method="get"  action="/Store/adminListOfProducts">
             </br>List    <input type="submit"  value="List Of Products"/></form>
      <form method="get"  action="/Store/listOfCustomers">
         </br>Add    <input type="submit"  value="List of Customers"/></form>

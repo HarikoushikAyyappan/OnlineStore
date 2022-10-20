@@ -7,18 +7,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Online Shopping Store</title>
+<title>error</title>
 </head>
 <body>
 <div align="center">
-    <h2>Welcome to Shopping.Let Shopping go online!</h2>
-    </form>
-    <form
-     <form method="get"  action="/Store/customerLogin">
-            </br>User Login    <input type="submit"  value="Login"/></form>
-     <form method="get"  action="/Store/adminLogin">
-        </br>Admin login   <input type="submit"  value="Login"/></form>
-
+    <h2>Invalid Username or Password</h2>
+     <a href="http://localhost:8080/Store">Home</a>
 </div>
 </body>
 </html>

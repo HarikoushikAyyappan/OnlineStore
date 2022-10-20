@@ -1,9 +1,6 @@
 package com.onlinestore.dao;
 
-import com.onlinestore.model.Admin;
-import com.onlinestore.model.Customer;
-import com.onlinestore.model.Orders;
-import com.onlinestore.model.Products;
+import com.onlinestore.model.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,6 +11,10 @@ public interface Dao {
     List<Products> getAllProducts();
     Orders orderGetById(int orderId);
     List<Admin> search(int adminId, String password);
-    List<Customer> findId(int customerId, String password);
+    List<Customer> find(int customerId, String password);
     List<Orders> get(int customerId);
+    List<Address> getProfile(int addressId);
+    Products getProducts(int  productId);
+    Products update(Products products);
+    Customer updateCustomer(Customer customer);
 }

@@ -13,4 +13,10 @@ public class ProductServiceImpl implements ProductService {
     public List<Products> getAllProducts(){
         return customerDao.getAllProducts();
     }
+    public Products getProducts(int  productId){
+        return customerDao.getProducts(productId);
+    }
+    public Products update(Products products){
+        return customerDao.update(products);
+    }
 }

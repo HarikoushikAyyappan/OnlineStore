@@ -12,7 +12,6 @@ public class Customer {
     private String password;
     @Column(name= "addressId")
     private int addressId;
-
     public int getCustomerId() {
         return customerId;
     }
@@ -44,4 +43,5 @@ public class Customer {
     public void setAddressId(int addressId) {
         this.addressId = addressId;
     }
+
 }

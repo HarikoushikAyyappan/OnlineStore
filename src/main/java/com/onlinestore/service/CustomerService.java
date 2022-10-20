@@ -1,4 +1,5 @@
 package com.onlinestore.service;
+import com.onlinestore.model.Address;
 import com.onlinestore.model.Admin;
 import com.onlinestore.model.Customer;
 import org.springframework.stereotype.Service;
@@ -11,4 +12,6 @@ public interface CustomerService {
     List<Customer> getAllCustomers();
     List<Admin> search(int adminId, String password);
     List<Customer> find(int customerId, String password);
+    List<Address> getProfile(int addressId);
+    Customer updateCustomer(Customer customer);
 }

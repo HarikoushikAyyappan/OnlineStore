@@ -17,21 +17,23 @@
         <table border="1" cellpadding="5">
             <tr>
                 <th>CustomerID</th>
+                <th>AddressID</th>
             </tr>
             <c:forEach items="${customerResult}" var="customer">
             <tr>
                 <td>${customer.customerId}</td>
-                <td><a href="http://localhost:8080/Store/orderList/${customer.customerId}/">viewProfile</a>
+                <td>${customer.addressId}</td>
+                <td><a href="http://localhost:8080/Store/orderList/${customer.customerId}/">viewOrders</a>
                                                  &nbsp;&nbsp;&nbsp;
                 </td>
+              <td><a href="http://localhost:8080/Store/viewProfile/${customer.addressId}/">viewProfile</a>
+                                                                 &nbsp;&nbsp;&nbsp;
+              </td>
             </tr>
             </c:forEach>
         </table>
      <form method="get"  action="/Store/listOfProducts">
             </br>List    <input type="submit"  value="List Of Products"/></form>
-     <form method="get"  action="/Store/customerProfile">
-        </br>CustomerProfile   <input type="submit"  value="Get"/></form>
-     <form method="get"  action="/Store/orderList">
-        </br>OrderList   <input type="submit"  value="Get"/></form>
 </div>
 </body>
+</html>

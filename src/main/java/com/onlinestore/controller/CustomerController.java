@@ -1,7 +1,5 @@
 package com.onlinestore.controller;
-import com.onlinestore.model.Admin;
-import com.onlinestore.model.Customer;
-import com.onlinestore.model.Orders;
+import com.onlinestore.model.*;
 import com.onlinestore.service.CustomerService;
 import com.onlinestore.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,9 +38,14 @@ public class CustomerController {
     @RequestMapping("/adminPage")
     public ModelAndView adminPage(@RequestParam int adminId,@RequestParam String password ){
         List<Admin> result = customerService.search(adminId,password);
-        ModelAndView mav = new ModelAndView("adminPage");
-        mav.addObject("result", result);
-        return mav;
+        if(result.isEmpty()){
+            return new ModelAndView("errorPage");
+        }
+        else {
+            ModelAndView mav = new ModelAndView("adminPage");
+            mav.addObject("result", result);
+            return mav;
+        }
     }
     @RequestMapping("/customerLogin")
     public ModelAndView newCustomerForm() {
@@ -53,15 +56,26 @@ public class CustomerController {
     @RequestMapping("/customerPage")
     public ModelAndView customerPage(@RequestParam int customerId,@RequestParam String password ){
         List<Customer> customerResult = customerService.find(customerId,password);
+        if(customerResult.isEmpty()){
+            return new ModelAndView("errorPage");
+        }
+        else{
         ModelAndView mav = new ModelAndView("customerPage");
         mav.addObject("customerResult", customerResult);
-        return mav;
+        return mav;}
     }
     @RequestMapping("/orderList/{customerId}")
     public ModelAndView orderList(@PathVariable int customerId) {
         ModelAndView mav = new ModelAndView("orderList");
         List<Orders> orderList = orderService.get(customerId);
         mav.addObject("orderList", orderList);
+        return mav;
+    }
+    @RequestMapping("/viewProfile/{addressId}")
+    public ModelAndView viewProfile(@PathVariable int addressId){
+        ModelAndView mav = new ModelAndView("customerProfile");
+        List<Address> profile = customerService.getProfile(addressId);
+        mav.addObject("profile", profile);
         return mav;
     }
 
